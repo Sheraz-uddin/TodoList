@@ -6,8 +6,20 @@ const Todo = () => {
     const [data,setData] = useState([])
     const [loading, setLoading] = useState(false);
     
-    const handleTodoClick = (title) => {
-      toast.dark(title);
+    const handleTodoClick = (todo) => {
+      // toast.dark(title);
+      const handleTodoClick = (todo) => {
+      fetch(`https://jsonplaceholder.typicode.com/users/${todo.userId}`)
+      .then((response) => response.json())
+        .then((response) => {
+          console.log(response)
+          const { name, email } = response;
+          toast(`User Name: ${name} Email: (${email})`);
+        })
+        .catch((error) => {
+          toast.error(error.message);
+        });
+    };
     };
 
     const handleClick = () => {
@@ -35,7 +47,7 @@ const Todo = () => {
         <ul>
 
           {data.map(todo => <li onDoubleClick={() => handleDoubleClick(todo.id)} 
-          onClick={() => handleTodoClick(todo.title)} key={todo.id}><span className="dot"></span>{todo.title}</li>)}
+          onClick={() => handleTodoClick(todo)} key={todo.id}><span className="dot"></span>{todo.title}</li>)}
           <ToastContainer />
         </ul>
       </div>
