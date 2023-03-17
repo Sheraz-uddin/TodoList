@@ -1,0 +1,44 @@
+.App {
+  text-align: center;
+}
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  color: white;
+}
+button{
+  background-color: #282c34;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+}
+button:hover{
+  color:#282c34;
+  background-color: white;
+}
+
+li{
+  cursor: pointer;
+  list-style: none;
+  padding: 5px;
+  text-align: left;
+  border: 1px solid rgb(230, 223, 223);
+  background-color: rgb(241, 239, 234);
+}
+
+.dot { 
+  margin-right: 10px;
+  height: 8px;
+  width: 8px;
+  background-color:black;
+  border-radius: 50%;
+  display: inline-block;
+}
